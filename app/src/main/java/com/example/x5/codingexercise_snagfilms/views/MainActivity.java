@@ -36,16 +36,10 @@ public class MainActivity extends AppCompatActivity implements FilmContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //initViews();
-        //readInFIlms();
         presenter = new FilmPresenter();
         presenter.attachView(this);
         setUpRecyclerView();
         presenter.getFilms();
-    }
-
-    private void initViews() {
-        //client = new OkHttpClient();
     }
 
     private void setUpRecyclerView() {
@@ -71,44 +65,4 @@ public class MainActivity extends AppCompatActivity implements FilmContract.View
             }
         });
     }
-
-    /*private void readInFIlms() {
-        final Request request = new Request.Builder().url("http://www.snagfilms.com/apis/films.json?limit=10").build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String json = response.body().string();
-                Gson gson = new Gson();
-                final FilmGroup filmGroup = gson.fromJson(json, FilmGroup.class);
-                Thread thread = new Thread() {
-                    public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if(filmGroup != null) {
-                                    Log.d(TAG, "run: Got the group");
-                                    filmList = filmGroup.getFilms().getFilm();
-                                    if(filmList != null && !filmList.isEmpty()) {
-                                        Log.d(TAG, "run: Got the film list, size is: " + filmList.size());
-                                        filmAdapter.updateDataSet(filmList);
-                                    }
-                                    else
-                                        Log.d(TAG, "run: No film list");
-                                }
-                                else
-                                    Log.d(TAG, "run: No group found");
-                            }
-                        });
-                    }
-                };
-                thread.start();
-
-            }
-        });
-    }*/
 }

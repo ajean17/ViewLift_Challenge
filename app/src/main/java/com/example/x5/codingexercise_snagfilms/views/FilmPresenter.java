@@ -47,7 +47,6 @@ public class FilmPresenter implements FilmContract.Presenter {
                 String json = response.body().string();
                 Gson gson = new Gson();
                 final FilmGroup filmGroup = gson.fromJson(json, FilmGroup.class);
-                //Log.d(TAG, "run: Got the group");
                 filmList = filmGroup.getFilms().getFilm();
                 view.updateFilms(filmList);
             }
