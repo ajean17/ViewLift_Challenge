@@ -1,7 +1,6 @@
-package com.example.x5.codingexercise_snagfilms;
+package com.example.x5.codingexercise_snagfilms.views;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.x5.codingexercise_snagfilms.R;
 import com.example.x5.codingexercise_snagfilms.models.Film;
 
 import java.util.List;
