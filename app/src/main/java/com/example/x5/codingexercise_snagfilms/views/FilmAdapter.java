@@ -11,11 +11,15 @@ import com.bumptech.glide.Glide;
 import com.example.x5.codingexercise_snagfilms.R;
 import com.example.x5.codingexercise_snagfilms.models.Film;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
     private static final String TAG = FilmAdapter.class.getSimpleName() + "_TAG";
-    List<Film> filmList;
+    List<Film> filmList = new ArrayList<>();
+
+    public FilmAdapter() {
+    }
 
     public FilmAdapter(List<Film> filmList) {
         this.filmList = filmList;
@@ -38,7 +42,6 @@ class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
         if(film != null && !film.getTitle().equals("") && !film.getTitle().isEmpty()) {
             holder.textView.setText(film.getTitle());
             Glide.with(holder.imageView.getContext()).load(film.getImages().getImage().get(0).getSrc()).into(holder.imageView);
-            //Log.d(TAG, "onBindViewHolder: Position:" + position + ", Film title: " + film.getTitle() + ", Images source: " + film.getImages().getImage().get(0).getSrc());
         }
         else
             holder.textView.setText("No title");
@@ -50,7 +53,6 @@ class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-
         ImageView imageView;
         TextView textView;
 

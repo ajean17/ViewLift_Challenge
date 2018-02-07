@@ -2,6 +2,7 @@ package com.example.x5.codingexercise_snagfilms.views;
 
 import android.util.Log;
 
+import com.example.x5.codingexercise_snagfilms.data.RemoteDataSource;
 import com.example.x5.codingexercise_snagfilms.models.Film;
 import com.example.x5.codingexercise_snagfilms.models.FilmGroup;
 import com.google.gson.Gson;
@@ -19,8 +20,13 @@ public class FilmPresenter implements FilmContract.Presenter {
 
     FilmContract.View view;
     List<Film> filmList;
+    RemoteDataSource remoteDataSource;
 
-    public FilmPresenter() {
+    FilmPresenter() {
+    }
+
+    public FilmPresenter(RemoteDataSource remoteDataSource) {
+        this.remoteDataSource = remoteDataSource;
     }
 
     @Override
